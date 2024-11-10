@@ -1,0 +1,129 @@
+{
+    "education": {
+        "label": "Education, certificates",
+        "style": "fa-graduation-cap",
+        "schools": [
+            {
+                "degree": "Master of Life",
+                "faculty": "Faculty of Life",
+                "school": "University of Life",
+                "year": 2051
+            }
+        ]
+    },
+    "experience": {
+        "companies": [
+            {
+                "description": [
+                    "Description of the current job"
+                ],
+                "from": 2024,
+                "name": "ACME Inc.",
+                "position": "Senior Looney Toon",
+                "technologies": "Cartoon, 2D, 3D",
+                "to": "present",
+                "url": "https://www.ac.me"
+            },
+            {
+                "description": [
+                    "Other things I do..."
+                ]
+            },
+            {
+                "description": [
+                    "Things I do.",
+                    "Other things I do."
+                ],
+                "from": 2020,
+                "name": "Company Name",
+                "position": "Best character",
+                "technologies": "2D, Cartoon",
+                "to": 2024,
+                "url": "https://fake.url/"
+            },
+            {
+                "description": [
+                    "Make the best cartoon ever."
+                ],
+                "technologies": "Colors, even more colors."
+            },
+            {
+                "description": [
+                    "Coloring"
+                ]
+            }
+        ],
+        "label": "Professional experience",
+        "style": "fa-laptop-code"
+    },
+    "general": {
+        "cell": {
+            "label": "Cell",
+            "value": "+999 (555) 123 456"
+        },
+        "email": {
+            "label": "Email",
+            "value": "my@mail.com"
+        },
+        "github": {
+            "label": "GitHub",
+            "value": "https://github.com/youKnowWho"
+        },
+        "linkedIn": {
+            "label": "LinkedIn",
+            "value": "https://www.linkedin.com/in/youKnowWho/"
+        },
+        "location": {
+            "label": "Location",
+            "value": "Walhalla",
+            "url": "https://www.google.com/maps/place/Walhalla"
+        },
+        "hobbies": {
+            "label": "Hobbies",
+            "style": "fa-dice",
+            "values": [
+                "Coding",
+                "Reading",
+				"Angular"
+            ]
+        },
+        "name": "YouKnowWho",
+        "objective": ""
+    },
+    "language": {
+        "label": "Languages",
+        "style": "fa-comment",
+        "languages": [
+            {
+                "level": "awesome level",
+                "name": "English"
+            }
+        ]
+    },
+    "project": {
+        "label": "Hobby projects",
+        "style": "fa-rocket",
+        "projects": [
+            {
+                "description": "Description of my hobby project",
+                "name": "Pet project"
+            }
+        ]
+    },
+    "skills": {
+        "label": "Personal skills and qualities",
+        "values": [
+            "willingness to code"
+        ]
+    },
+    "training": {
+        "label": "Trainings",
+        "style": "fa-book-open-reader",
+        "trainings": [
+            {
+                "name": "Angular",
+                "organizer": "Training"
+            }
+        ]
+    }
+}

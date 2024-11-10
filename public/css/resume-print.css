@@ -1,0 +1,31 @@
+* { margin: 0; padding: 0; }
+body { font: 16px Helvetica, Sans-Serif; line-height: 24px;color: #34263D;}
+.clear { clear: both; }
+.right { float: right; }
+.left { float: left; }
+.italic { font-style: italic; }
+#page-wrap { width: 800px; margin: 40px auto 60px; }
+#pic { display: none;}
+h1 { margin: 15px 0 0; font-size: 28px; font-weight: bold; letter-spacing: -2px;}
+#contact-info {border-bottom: 1px solid #555;}
+h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
+h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; font-weight: normal; }
+p { margin: 0 0 16px 0; }
+a { color: #000; text-decoration: none; }
+a:hover { border-bottom-style: solid; color: black; }
+ul { margin: 0 0 17px 17px; }
+#objective { width: 500px; float: left; }
+#objective p { font-family: Georgia, Serif; font-style: italic; color: #665; }
+dt { color:#45B1EF; font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 15px 0 0; width: 160px; float: left; border-right: 1px solid #999;}
+dd { width: 600px; float: right; }
+dd.clear { float: none; margin: 0; }
+.lang-selector {display: none;}
+.not-list {list-style: none;}
+.big-icon {float:left;font-size:30px; margin: 0 5px 0 0;height:40px;width:45px;text-align:center;padding:5px 0 0 0;color: #FD9F25}
+.small-icon {text-align: center;margin: 0 9px 0 0;width:16px;color:#FD9F25;}
+.experience {color: #192e5b;}
+.projects {color: #f2a104;}
+.trainings {color: #00743f;}
+.education {color: #f25117;}
+.languages {color: #1d65a6;}
+.hobbies {color: #72a2c0;}
