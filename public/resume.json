@@ -2,6 +2,7 @@
     "education": {
         "label": "Education, certificates",
         "style": "fa-graduation-cap",
+        "labelClass": "colorLightBlue",
         "schools": [
             {
                 "degree": "Master of Life",
@@ -51,10 +52,21 @@
                 "description": [
                     "Coloring"
                 ]
+            },
+            {
+                "description": [
+                    "Drawing"
+                ],
+                "from": 2016,
+                "name": "Practicing",
+                "position": "Learning the basics",
+                "technologies": "Paper, pencil",
+                "to": 2020
             }
         ],
         "label": "Professional experience",
-        "style": "fa-laptop-code"
+        "style": "fa-laptop-code",
+        "labelClass": "colorLightBlue"
     },
     "general": {
         "cell": {
@@ -92,6 +104,7 @@
     },
     "language": {
         "label": "Languages",
+        "labelClass": "colorLightBlue",
         "style": "fa-comment",
         "languages": [
             {
@@ -102,6 +115,7 @@
     },
     "project": {
         "label": "Hobby projects",
+        "labelClass": "colorLightBlue",
         "style": "fa-rocket",
         "projects": [
             {
@@ -112,12 +126,14 @@
     },
     "skills": {
         "label": "Personal skills and qualities",
+        "labelClass": "colorLightBlue",
         "values": [
             "willingness to code"
         ]
     },
     "training": {
         "label": "Trainings",
+        "labelClass": "colorLightBlue",
         "style": "fa-book-open-reader",
         "trainings": [
             {

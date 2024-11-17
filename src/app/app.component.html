@@ -1,90 +1,123 @@
-<div *ngIf="resume">
-  <div id="page-wrap">
-	<div id="contact-info" class="vcard">
-		<h1 class="fn left">{{ resume.general.name }}</h1>
-		<div class="right">
-			<i class="fas fa-mobile-screen-button small-icon"></i><span class="tel">{{ resume.general.cell.value }}</span><br/>
-			<i class="fas fa-paper-plane small-icon"></i><a [href]="'mailto:' + resume.general.email.value">{{ resume.general.email.value }}</a><br/>
-			<span *ngIf="resume.general.github"><i class="fa-brands fa-github small-icon"></i><a [href]="resume.general.github.value" target="_blank">{{ resume.general.github.value }}</a><br/></span>
-			<span *ngIf="resume.general.linkedIn"><i class="fa-brands fa-linkedin small-icon"></i><a [href]="resume.general.linkedIn.value" target="_blank">{{ resume.general.linkedIn.value }}</a><br/></span>
-			<span *ngIf="resume.general.location"><i class="fas fa-location-dot small-icon"></i><a [href]="resume.general.location.url" target="_blank">{{ resume.general.location.value }}</a><br/></span>
+@if (resume) {
+	<div id="page-wrap">
+		<div id="contact-info" class="vcard">
+			<h1 class="fn left">{{ resume.general.name }}</h1>
+			<div class="right">
+				<i class="fas fa-mobile-screen-button small-icon"></i><span class="tel">{{ resume.general.cell.value }}</span><br/>
+				<i class="fas fa-paper-plane small-icon"></i><a [href]="'mailto:' + resume.general.email.value">{{ resume.general.email.value }}</a><br/>
+				@if (resume.general.github) {
+					<i class="fa-brands fa-github small-icon"></i><a [href]="resume.general.github.value" target="_blank">{{ resume.general.github.value }}</a><br/>
+				}
+				@if (resume.general.linkedIn) {
+					<i class="fa-brands fa-linkedin small-icon"></i><a [href]="resume.general.linkedIn.value" target="_blank">{{ resume.general.linkedIn.value }}</a><br/>
+				}
+				@if (resume.general.location) {
+					<i class="fas fa-location-dot small-icon"></i><a [href]="resume.general.location.url" target="_blank">{{ resume.general.location.value }}</a><br/>
+				}
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div id="objective">
+			<p>{{ resume.general.objective }}</p>
 		</div>
 		<div class="clear"></div>
-	</div>
 
-	<div id="objective">
-		<p>{{ resume.general.objective }}</p>
-	</div>
-	<div class="clear"></div>
-
-	<dl>
-		<dt><i class="fas big-icon {{resume.experience?.style}}"></i><span>{{ resume.experience.label }}</span></dt>
-		<dd>
-			<span *ngFor="let company of resume.experience.companies">
-				<h2 *ngIf="company.position" >
-					{{ company.position }} <span><a [href]="company.url" target="_blank">{{ company.name }}</a> – {{ company.from }}{{ '-'+company.to }}</span>
-				</h2>
+		<dl>
+			<dt><i class="fas big-icon {{resume.experience?.style}}"></i><span class="{{resume.experience?.labelClass}}">{{ resume.experience.label }}</span></dt>
+			<dd>
+				@for (company of resume.experience.companies; track $index) {
+					@if (company.position) {
+						<h2>
+							{{ company.position }} 
+							<span>
+								@if (company.name) {
+									@if (company.url) {
+										<a [href]="company.url" target="_blank">{{ company.name }}</a>
+									} @else {
+										{{ company.name }}
+									}
+									– 
+								}
+								{{ company.from + '-' + company.to }}
+							</span>
+						</h2>
+					}
+					<ul>
+						@for (description of company.description; track $index) {
+							<li [innerHTML]="description"></li>
+						}
+						@if (company.technologies) {
+							<li class="not-list italic">[{{ company.technologies }}]</li>
+						}
+					</ul>
+				}
+			</dd>
+			<dd class="clear"></dd>
+			
+			@if (resume.project) {
+				<dt><i class="fas big-icon {{resume.project?.style}}"></i><span class="{{resume.project?.labelClass}}">{{ resume.project.label }}</span></dt>
+				<dd>
+					<ul>
+						@for (project of resume.project.projects; track $index) {
+							<li>
+								{{ project.name }} – {{ project.description }}
+							</li>
+						}
+					</ul>
+				</dd>
+				<dd class="clear"></dd>
+			}
+			
+			<dt><i class="fas big-icon {{resume.training?.style}}"></i><span class="{{resume.training?.labelClass}}">{{ resume.training.label }}</span></dt>
+			<dd>
 				<ul>
-					<li *ngFor="let description of company.description" [innerHTML]="description"></li>
-					<li class="not-list italic" *ngIf="company.technologies">[{{ company.technologies }}]</li>
+					@for (training of resume.training.trainings; track $index) {
+						<li>
+							{{ training.name }} – {{ training.organizer }}
+						</li>
+					}
 				</ul>
-			</span>
-		</dd>
-		<dd class="clear"></dd>
-		
-		<dt *ngIf="resume.project"><i class="fas big-icon {{resume.project?.style}}"></i><span>{{ resume.project.label }}</span></dt>
-		<dd *ngIf="resume.project">
-			<ul>
-				<li *ngFor="let project of resume.project.projects">
-					{{ project.name }} – {{ project.description }}
-				</li>
-			</ul>
-		</dd>
-		<dd *ngIf="resume.project" class="clear"></dd>
-		
-		<dt><i class="fas big-icon {{resume.training?.style}}"></i><span>{{ resume.training.label }}</span></dt>
-		<dd>
-			<ul>
-				<li *ngFor="let training of resume.training.trainings">
-					{{ training.name }} – {{ training.organizer }}
-				</li>
-			</ul>
-		</dd>
-		<dd class="clear"></dd>
-		
-		<dt><i class="fas big-icon {{resume.education?.style}}"></i><span>{{ resume.education.label }}</span></dt>
-		<dd>
-			<span *ngFor="let school of resume.education.schools">
-				<h2>
-					{{ school.degree }} <span>{{ school.year }}</span>
-				</h2>
-				<p>
-					<strong>{{ school.school }}</strong><span *ngIf="school.faculty"> – {{ school.faculty }}</span>
-				</p>
-			</span>
-		</dd>
-		<dd class="clear"></dd>
+			</dd>
+			<dd class="clear"></dd>
+			
+			<dt><i class="fas big-icon {{resume.education?.style}}"></i><span class="{{resume.education?.labelClass}}">{{ resume.education.label }}</span></dt>
+			<dd>
+				@for (school of resume.education.schools; track $index) {
+					<h2>
+						{{ school.degree }} <span>{{ school.year }}</span>
+					</h2>
+					<p>
+						<strong>{{ school.school }}</strong>@if (school.faculty) { – {{ school.faculty }}}
+					</p>
+				}
+			</dd>
+			<dd class="clear"></dd>
 
-		<dt><i class="fas big-icon {{resume.language?.style}}"></i><span>{{ resume.language.label }}</span></dt>
-		<dd>
-			<ul>
-				<li *ngFor="let language of resume.language.languages">
-					<strong>{{ language.name }}</strong> ({{ language.level }})
-				</li>
-			</ul>
-		</dd>
-		<dd class="clear"></dd>
+			<dt><i class="fas big-icon {{resume.language?.style}}"></i><span class="{{resume.language?.labelClass}}">{{ resume.language.label }}</span></dt>
+			<dd>
+				<ul>
+					@for (language of resume.language.languages; track $index) {
+						<li>
+							<strong>{{ language.name }}</strong> ({{ language.level }})
+						</li>
+					}
+				</ul>
+			</dd>
+			<dd class="clear"></dd>
 
-		<dt><i class="fas big-icon {{resume.general.hobbies?.style}}"></i><span>{{ resume.general.hobbies.label }}</span></dt>
-		<dd>
-			<ul>
-				<li *ngFor="let hobby of resume.general.hobbies.values">
-					{{ hobby }}
-				</li>
-			</ul>
-		</dd>
-		<dd class="clear"></dd>
-	</dl>
+			<dt><i class="fas big-icon {{resume.general.hobbies?.style}}"></i><span class="{{resume.general.hobbies?.labelClass}}">{{ resume.general.hobbies.label }}</span></dt>
+			<dd>
+				<ul>
+					@for (hobby of resume.general.hobbies.values; track $index) {
+						<li>{{ hobby }}</li>
+					}
+				</ul>
+			</dd>
+			<dd class="clear"></dd>
+		</dl>
 
-	<div class="clear"></div>
-</div>
+		<div class="clear"></div>
+	</div>
+}
+

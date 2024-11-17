@@ -16,13 +16,16 @@ a:hover { border-bottom-style: solid; color: black; }
 ul { margin: 0 0 17px 17px; }
 #objective { width: 500px; float: left; }
 #objective p { font-family: Georgia, Serif; font-style: italic; color: #665; }
-dt { color:#45B1EF; font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 15px 0 0; width: 160px; float: left; border-right: 1px solid #999;}
+dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 15px 0 0; width: 160px; float: left; border-right: 1px solid #999;}
 dd { width: 600px; float: right; }
 dd.clear { float: none; margin: 0; }
 .lang-selector {display: none;}
 .not-list {list-style: none;}
 .big-icon {float:left;font-size:30px; margin: 0 5px 0 0;height:40px;width:45px;text-align:center;padding:5px 0 0 0;color: #FD9F25}
 .small-icon {text-align: center;margin: 0 9px 0 0;width:16px;color:#FD9F25;}
+.colorDark {color: #192e5b;}
+.colorLightBlue {color:#45B1EF;}
+
 .experience {color: #192e5b;}
 .projects {color: #f2a104;}
 .trainings {color: #00743f;}
