@@ -3,5 +3,5 @@ import { Styleable } from './styleable.interface';
 
 export interface Project extends Styleable {
   readonly label: string;
-  readonly projects: ProjectDetail[];
+  readonly projects: readonly ProjectDetail[];
 }

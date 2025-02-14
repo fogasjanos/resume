@@ -1,22 +1,22 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
+import { ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Resume } from './interfaces/resume.interface';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [AsyncPipe],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
   private readonly http = inject(HttpClient);
   private readonly route = inject(ActivatedRoute);
-  title = 'resume-app';
+  private readonly title = 'resume-app';
 
   resume$!: Observable<Resume>;
 
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     document.title = this.title;
 
     this.resume$ = this.route.queryParams.pipe(
-      switchMap((params) => {
+      switchMap((params: Params) => {
         const postfix = params['p'];
         return this.getJsonData(postfix);
       })
@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
 
   getJsonData(postfix: string): Observable<any> {
     const apiUrl = `resume${postfix ? '-' + postfix : ''}.json`;
+
     return this.http.get<any>(apiUrl);
   }
 }

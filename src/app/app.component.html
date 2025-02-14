@@ -3,9 +3,10 @@
     <div id="contact-info" class="vcard">
       <h1 class="fn left">{{ resume.general.name }}</h1>
       <div class="right">
-        <i class="fas fa-mobile-screen-button small-icon"></i><span class="tel">{{ resume.general.cell.value }}</span
+        <i class="fas fa-mobile-screen-button small-icon"></i><span class="tel">{{ resume.general.cell?.value }}</span
         ><br />
-        <i class="fas fa-paper-plane small-icon"></i><a [href]="'mailto:' + resume.general.email.value">{{ resume.general.email.value }}</a
+        <i class="fas fa-paper-plane small-icon"></i
+        ><a [href]="'mailto:' + resume.general.email?.value">{{ resume.general.email?.value }}</a
         ><br />
         @if (resume.general.github) {
           <i class="fa-brands fa-github small-icon"></i
@@ -19,7 +20,7 @@
         }
         @if (resume.general.location) {
           <i class="fas fa-location-dot small-icon"></i
-          ><a [href]="resume.general.location.url" target="_blank">{{ resume.general.location.value }}</a
+          ><a [href]="resume.general.location.url" target="_blank">{{ resume?.general?.location?.value }}</a
           ><br />
         }
       </div>
@@ -34,10 +35,10 @@
     <dl>
       <dt>
         <i class="fas big-icon {{ resume.experience?.style }}"></i
-        ><span class="{{ resume.experience?.labelClass }}">{{ resume.experience.label }}</span>
+        ><span class="{{ resume.experience?.labelClass }}">{{ resume.experience?.label }}</span>
       </dt>
       <dd>
-        @for (company of resume.experience.companies; track $index) {
+        @for (company of resume.experience?.companies; track $index) {
           @if (company.position) {
             <h2>
               {{ company.position }}
@@ -68,8 +69,8 @@
 
       @if (resume.project) {
         <dt>
-          <i class="fas big-icon {{ resume.project?.style }}"></i
-          ><span class="{{ resume.project?.labelClass }}">{{ resume.project.label }}</span>
+          <i class="fas big-icon {{ resume?.project?.style }}"></i
+          ><span class="{{ resume?.project?.labelClass }}">{{ resume.project.label }}</span>
         </dt>
         <dd>
           <ul>
@@ -83,11 +84,11 @@
 
       <dt>
         <i class="fas big-icon {{ resume.training?.style }}"></i
-        ><span class="{{ resume.training?.labelClass }}">{{ resume.training.label }}</span>
+        ><span class="{{ resume.training?.labelClass }}">{{ resume.training?.label }}</span>
       </dt>
       <dd>
         <ul>
-          @for (training of resume.training.trainings; track $index) {
+          @for (training of resume.training?.trainings; track $index) {
             <li>{{ training.name }} – {{ training.organizer }}</li>
           }
         </ul>
@@ -95,8 +96,8 @@
       <dd class="clear"></dd>
 
       <dt>
-        <i class="fas big-icon {{ resume.education?.style }}"></i
-        ><span class="{{ resume.education?.labelClass }}">{{ resume.education.label }}</span>
+        <i class="fas big-icon {{ resume?.education?.style }}"></i
+        ><span class="{{ resume?.education?.labelClass }}">{{ resume.education.label }}</span>
       </dt>
       <dd>
         @for (school of resume.education.schools; track $index) {
@@ -115,11 +116,11 @@
 
       <dt>
         <i class="fas big-icon {{ resume.language?.style }}"></i
-        ><span class="{{ resume.language?.labelClass }}">{{ resume.language.label }}</span>
+        ><span class="{{ resume.language?.labelClass }}">{{ resume.language?.label }}</span>
       </dt>
       <dd>
         <ul>
-          @for (language of resume.language.languages; track $index) {
+          @for (language of resume.language?.languages; track $index) {
             <li>
               <strong>{{ language.name }}</strong> ({{ language.level }})
             </li>
@@ -130,11 +131,11 @@
 
       <dt>
         <i class="fas big-icon {{ resume.general.hobbies?.style }}"></i
-        ><span class="{{ resume.general.hobbies?.labelClass }}">{{ resume.general.hobbies.label }}</span>
+        ><span class="{{ resume.general.hobbies?.labelClass }}">{{ resume.general.hobbies?.label }}</span>
       </dt>
       <dd>
         <ul>
-          @for (hobby of resume.general.hobbies.values; track $index) {
+          @for (hobby of resume.general.hobbies?.values; track $index) {
             <li>{{ hobby }}</li>
           }
         </ul>

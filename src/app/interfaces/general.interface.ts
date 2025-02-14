@@ -1,5 +1,6 @@
 import { Hobby } from './hobby.interface';
 import { LabelValue } from './label-value.interface';
+import { Location } from './location.interface';
 
 export interface General {
   readonly cell?: LabelValue;
