@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Resume } from './interfaces/resume.interface';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   title = 'resume-app';
 
-  resume$!: Observable<any>;
+  resume$!: Observable<Resume>;
 
   ngOnInit(): void {
     document.title = this.title;
