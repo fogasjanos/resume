@@ -10,10 +10,9 @@ import { switchMap } from 'rxjs/operators';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  
   private readonly http = inject(HttpClient);
   private readonly route = inject(ActivatedRoute);
   title = 'resume-app';
@@ -32,7 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   getJsonData(postfix: string): Observable<any> {
-    const apiUrl = `resume${postfix ? '-'+ postfix : ''}.json`;
+    const apiUrl = `resume${postfix ? '-' + postfix : ''}.json`;
     return this.http.get<any>(apiUrl);
   }
 }
