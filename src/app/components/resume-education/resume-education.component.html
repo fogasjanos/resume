@@ -1,0 +1,20 @@
+<dl>
+  <dt>
+    <i class="fas big-icon {{ education().style }}"></i>
+    <span class="{{ education().labelClass }}">{{ education().label }}</span>
+  </dt>
+  <dd>
+    @for (school of education().schools; track $index) {
+      <h2>
+        {{ school.degree }} <span>{{ school.year }}</span>
+      </h2>
+      <p>
+        <strong>{{ school.school }}</strong>
+        @if (school.faculty) {
+          – {{ school.faculty }}
+        }
+      </p>
+    }
+  </dd>
+  <dd class="clear"></dd>
+</dl>

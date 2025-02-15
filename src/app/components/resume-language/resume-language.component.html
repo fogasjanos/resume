@@ -1,0 +1,16 @@
+<dl>
+  <dt>
+    <i class="fas big-icon {{ language().style }}"></i>
+    <span class="{{ language().labelClass }}">{{ language().label }}</span>
+  </dt>
+  <dd>
+    <ul>
+      @for (language of language().languages; track $index) {
+        <li>
+          <strong>{{ language.name }}</strong> ({{ language.level }})
+        </li>
+      }
+    </ul>
+  </dd>
+  <dd class="clear"></dd>
+</dl>

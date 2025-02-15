@@ -1,37 +1,48 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
+import { ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Resume } from './interfaces/resume.interface';
+import { ResumeHeaderComponent } from './components/resume-header/resume-header.component';
+import { ResumeExperienceComponent } from './components/resume-experience/resume-experience.component';
+import { ResumeProjectComponent } from './components/resume-project/resume-project.component';
+import { ResumeTrainingComponent } from './components/resume-training/resume-training.component';
+import { ResumeEducationComponent } from './components/resume-education/resume-education.component';
+import { ResumeLanguageComponent } from './components/resume-language/resume-language.component';
+import { ResumeHobbiesComponent } from './components/resume-hobbies/resume-hobbies.component';
+import { JsonDataService } from './services/json-data.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule],
+  imports: [
+    AsyncPipe,
+    ResumeEducationComponent,
+    ResumeExperienceComponent,
+    ResumeHeaderComponent,
+    ResumeHobbiesComponent,
+    ResumeLanguageComponent,
+    ResumeProjectComponent,
+    ResumeTrainingComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
-  private readonly http = inject(HttpClient);
+export class AppComponent {
+  private readonly jsonDataService = inject(JsonDataService);
   private readonly route = inject(ActivatedRoute);
-  title = 'resume-app';
+  private readonly title = 'resume-app';
 
-  resume$!: Observable<any>;
+  resume$!: Observable<Resume>;
 
-  ngOnInit(): void {
+  constructor() {
     document.title = this.title;
 
     this.resume$ = this.route.queryParams.pipe(
-      switchMap((params) => {
+      switchMap((params: Params) => {
         const postfix = params['p'];
-        return this.getJsonData(postfix);
+        return this.jsonDataService.getJsonData(postfix);
       })
     );
-  }
-
-  getJsonData(postfix: string): Observable<any> {
-    const apiUrl = `resume${postfix ? '-' + postfix : ''}.json`;
-    return this.http.get<any>(apiUrl);
   }
 }
