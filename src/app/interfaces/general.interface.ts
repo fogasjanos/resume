@@ -1,14 +1,12 @@
-import { Hobby } from './hobby.interface';
 import { LabelValue } from './label-value.interface';
-import { Location } from './location.interface';
+import { City } from './city.interface';
 
 export interface General {
   readonly cell?: LabelValue;
   readonly email?: LabelValue;
   readonly github?: LabelValue;
   readonly linkedIn?: LabelValue;
-  readonly location?: Location;
-  readonly hobbies?: Hobby;
+  readonly city?: City;
   readonly name: string;
   readonly objective?: string;
 }

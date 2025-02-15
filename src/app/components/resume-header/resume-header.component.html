@@ -26,9 +26,9 @@
       <br />
     }
 
-    @if (general().location; as location) {
+    @if (general().city; as city) {
       <i class="fas fa-location-dot small-icon"></i>
-      <a [href]="location.url" target="_blank">{{ location.value }}</a>
+      <a [href]="city.url" target="_blank">{{ city.value }}</a>
       <br />
     }
   </div>

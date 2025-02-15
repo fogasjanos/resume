@@ -1,5 +1,5 @@
 import { LabelValue } from './label-value.interface';
 
-export interface Location extends LabelValue {
+export interface City extends LabelValue {
   readonly url: string;
 }

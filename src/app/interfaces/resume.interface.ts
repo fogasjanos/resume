@@ -1,6 +1,7 @@
 import { Education } from './education.interface';
 import { Experience } from './experience.interface';
 import { General } from './general.interface';
+import { Hobby } from './hobby.interface';
 import { Language } from './language.interface';
 import { Project } from './project.interface';
 import { Skill } from './skill.interface';
@@ -14,4 +15,5 @@ export interface Resume {
   readonly project?: Project;
   readonly skills: Skill;
   readonly training?: Training;
+  readonly hobbies?: Hobby;
 }

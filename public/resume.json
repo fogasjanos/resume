@@ -55,6 +55,12 @@
     "style": "fa-laptop-code",
     "labelClass": "colorLightBlue"
   },
+  "hobbies": {
+    "label": "Hobbies",
+    "labelClass": "colorLightBlue",
+    "style": "fa-dice",
+    "values": ["Coding", "Reading", "Angular"]
+  },
   "general": {
     "cell": {
       "label": "Cell",
@@ -72,18 +78,13 @@
       "label": "LinkedIn",
       "value": "https://www.linkedin.com/in/youKnowWho/"
     },
-    "location": {
+    "city": {
       "label": "Location",
       "value": "Walhalla",
       "url": "https://www.google.com/maps/place/Walhalla"
     },
-    "hobbies": {
-      "label": "Hobbies",
-      "style": "fa-dice",
-      "values": ["Coding", "Reading", "Angular"]
-    },
     "name": "YouKnowWho",
-    "objective": ""
+    "objective": "My CV is the best..."
   },
   "language": {
     "label": "Languages",
