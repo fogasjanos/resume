@@ -1,0 +1,14 @@
+<dl>
+  <dt>
+    <i class="fas big-icon {{ training().style }}"></i>
+    <span class="{{ training().labelClass }}">{{ training().label }}</span>
+  </dt>
+  <dd>
+    <ul>
+      @for (training of training().trainings; track $index) {
+        <li>{{ training.name }} – {{ training.organizer }}</li>
+      }
+    </ul>
+  </dd>
+  <dd class="clear"></dd>
+</dl>

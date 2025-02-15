@@ -1,0 +1,43 @@
+<div id="contact-info" class="vcard">
+  <h1 class="fn left">{{ general().name }}</h1>
+
+  <div class="right">
+    @if (general().cell; as cell) {
+      <i class="fas fa-mobile-screen-button small-icon"></i>
+      <span class="tel">{{ cell.value }}</span>
+      <br />
+    }
+
+    @if (general().email; as email) {
+      <i class="fas fa-paper-plane small-icon"></i>
+      <a [href]="'mailto:' + email.value">{{ email.value }}</a>
+      <br />
+    }
+
+    @if (general().github; as github) {
+      <i class="fa-brands fa-github small-icon"></i>
+      <a [href]="github.value" target="_blank">{{ github.value }}</a>
+      <br />
+    }
+
+    @if (general().linkedIn; as linkedIn) {
+      <i class="fa-brands fa-linkedin small-icon"></i>
+      <a [href]="linkedIn.value" target="_blank">{{ linkedIn.value }}</a>
+      <br />
+    }
+
+    @if (general().location; as location) {
+      <i class="fas fa-location-dot small-icon"></i>
+      <a [href]="location.url" target="_blank">{{ location.value }}</a>
+      <br />
+    }
+  </div>
+
+  <div class="clear"></div>
+</div>
+
+<div id="objective">
+  <p>{{ general().objective }}</p>
+</div>
+
+<div class="clear"></div>

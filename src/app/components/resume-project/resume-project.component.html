@@ -1,0 +1,14 @@
+<dl>
+  <dt>
+    <i class="fas big-icon {{ project().style }}"></i>
+    <span class="{{ project().labelClass }}">{{ project().label }}</span>
+  </dt>
+  <dd>
+    <ul>
+      @for (project of project().projects; track $index) {
+        <li>{{ project.name }} – {{ project.description }}</li>
+      }
+    </ul>
+  </dd>
+  <dd class="clear"></dd>
+</dl>

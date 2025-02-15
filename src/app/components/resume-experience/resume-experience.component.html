@@ -1,0 +1,35 @@
+<dl>
+  <dt>
+    <i class="fas big-icon {{ experience().style }}"></i>
+    <span class="{{ experience().labelClass }}">{{ experience().label }}</span>
+  </dt>
+  <dd>
+    @for (company of experience().companies; track $index) {
+      @if (company.position) {
+        <h2>
+          {{ company.position }}
+          <span>
+            @if (company.name) {
+              @if (company.url) {
+                <a [href]="company.url" target="_blank">{{ company.name }}</a>
+              } @else {
+                {{ company.name }}
+              }
+              –
+            }
+            {{ company.from + '-' + company.to }}
+          </span>
+        </h2>
+      }
+      <ul>
+        @for (description of company.description; track $index) {
+          <li [innerHTML]="description"></li>
+        }
+        @if (company.technologies) {
+          <li class="not-list italic">[{{ company.technologies }}]</li>
+        }
+      </ul>
+    }
+  </dd>
+  <dd class="clear"></dd>
+</dl>
