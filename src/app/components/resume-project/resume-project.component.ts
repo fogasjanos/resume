@@ -3,7 +3,6 @@ import { Project } from '../../interfaces/project.interface';
 
 @Component({
   selector: 'app-resume-project',
-  standalone: true,
   templateUrl: './resume-project.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

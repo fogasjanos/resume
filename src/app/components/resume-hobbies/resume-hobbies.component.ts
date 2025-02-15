@@ -3,7 +3,6 @@ import { Hobby } from '../../interfaces/hobby.interface';
 
 @Component({
   selector: 'app-resume-hobbies',
-  standalone: true,
   templateUrl: './resume-hobbies.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

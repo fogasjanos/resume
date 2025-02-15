@@ -3,7 +3,6 @@ import { Language } from '../../interfaces/language.interface';
 
 @Component({
   selector: 'app-resume-language',
-  standalone: true,
   templateUrl: './resume-language.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

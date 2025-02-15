@@ -3,7 +3,6 @@ import { Training } from '../../interfaces/training.interface';
 
 @Component({
   selector: 'app-resume-training',
-  standalone: true,
   templateUrl: './resume-training.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

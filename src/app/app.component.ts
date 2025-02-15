@@ -15,7 +15,6 @@ import { JsonDataService } from './services/json-data.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [
     AsyncPipe,
     ResumeEducationComponent,
