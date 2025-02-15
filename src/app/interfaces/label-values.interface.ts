@@ -1,6 +1,7 @@
 import { Styleable } from './styleable.interface';
 
-export interface Hobby extends Styleable {
+export interface LabelValues extends Styleable {
   readonly label: string;
   readonly values: string[];
+  readonly disabled?: boolean; 
 }

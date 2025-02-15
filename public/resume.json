@@ -1,67 +1,7 @@
 {
-  "education": {
-    "label": "Education, certificates",
-    "style": "fa-graduation-cap",
-    "labelClass": "colorLightBlue",
-    "schools": [
-      {
-        "degree": "Master of Life",
-        "faculty": "Faculty of Life",
-        "school": "University of Life",
-        "year": 2051
-      }
-    ]
-  },
-  "experience": {
-    "companies": [
-      {
-        "description": ["Description of the current job"],
-        "from": 2024,
-        "name": "ACME Inc.",
-        "position": "Senior Looney Toon",
-        "technologies": "Cartoon, 2D, 3D",
-        "to": "present",
-        "url": "https://www.ac.me"
-      },
-      {
-        "description": ["Other things I do..."]
-      },
-      {
-        "description": ["Things I do.", "Other things I do."],
-        "from": 2020,
-        "name": "Company Name",
-        "position": "Best character",
-        "technologies": "2D, Cartoon",
-        "to": 2024,
-        "url": "https://fake.url/"
-      },
-      {
-        "description": ["Make the best cartoon ever."],
-        "technologies": "Colors, even more colors."
-      },
-      {
-        "description": ["Coloring"]
-      },
-      {
-        "description": ["Drawing"],
-        "from": 2016,
-        "name": "Practicing",
-        "position": "Learning the basics",
-        "technologies": "Paper, pencil",
-        "to": 2020
-      }
-    ],
-    "label": "Professional experience",
-    "style": "fa-laptop-code",
-    "labelClass": "colorLightBlue"
-  },
-  "hobbies": {
-    "label": "Hobbies",
-    "labelClass": "colorLightBlue",
-    "style": "fa-dice",
-    "values": ["Coding", "Reading", "Angular"]
-  },
   "general": {
+    "name": "YouKnowWho",
+    "objective": "My CV is the best...",
     "cell": {
       "label": "Cell",
       "value": "+999 (555) 123 456"
@@ -82,19 +22,71 @@
       "label": "Location",
       "value": "Walhalla",
       "url": "https://www.google.com/maps/place/Walhalla"
-    },
-    "name": "YouKnowWho",
-    "objective": "My CV is the best..."
+    }
   },
-  "language": {
-    "label": "Languages",
-    "labelClass": "colorLightBlue",
-    "style": "fa-comment",
-    "languages": [
+  "experience": {
+    "companies": [
       {
-        "level": "awesome level",
-        "name": "English"
+        "description": [
+          "Description of the current job"
+        ],
+        "from": 2024,
+        "name": "ACME Inc.",
+        "position": "Senior Looney Toon",
+        "technologies": "Cartoon, 2D, 3D",
+        "to": "present",
+        "url": "https://www.ac.me"
+      },
+      {
+        "description": [
+          "Other things I do..."
+        ]
+      },
+      {
+        "description": [
+          "Things I do.",
+          "Other things I do."
+        ],
+        "from": 2020,
+        "name": "Company Name",
+        "position": "Best character",
+        "technologies": "2D, Cartoon",
+        "to": 2024,
+        "url": "https://fake.url/"
+      },
+      {
+        "description": [
+          "Make the best cartoon ever."
+        ],
+        "technologies": "Colors, even more colors."
+      },
+      {
+        "description": [
+          "Coloring"
+        ]
+      },
+      {
+        "description": [
+          "Drawing"
+        ],
+        "from": 2016,
+        "name": "Practicing",
+        "position": "Learning the basics",
+        "technologies": "Paper, pencil",
+        "to": 2020
       }
+    ],
+    "label": "Professional experience",
+    "style": "fa-laptop-code",
+    "labelClass": "colorLightBlue"
+  },
+  "skills": {
+    "disabled": false,
+    "label": "Personal skills and qualities",
+    "labelClass": "colorLightBlue",
+    "style": "fa-wrench",
+	"values": [
+      "willingness to code"
     ]
   },
   "project": {
@@ -108,11 +100,6 @@
       }
     ]
   },
-  "skills": {
-    "label": "Personal skills and qualities",
-    "labelClass": "colorLightBlue",
-    "values": ["willingness to code"]
-  },
   "training": {
     "label": "Trainings",
     "labelClass": "colorLightBlue",
@@ -122,6 +109,40 @@
         "name": "Angular",
         "organizer": "Training"
       }
+    ]
+  },
+  "education": {
+    "label": "Education, certificates",
+    "style": "fa-graduation-cap",
+    "labelClass": "colorLightBlue",
+    "schools": [
+      {
+        "degree": "Master of Life",
+        "faculty": "Faculty of Life",
+        "school": "University of Life",
+        "year": 2051
+      }
+    ]
+  },
+  "language": {
+    "label": "Languages",
+    "labelClass": "colorLightBlue",
+    "style": "fa-comment",
+    "languages": [
+      {
+        "level": "awesome level",
+        "name": "English"
+      }
+    ]
+  },
+  "hobbies": {
+    "label": "Hobbies",
+    "labelClass": "colorLightBlue",
+    "style": "fa-dice",
+    "values": [
+      "Coding",
+      "Reading",
+      "Angular"
     ]
   }
 }

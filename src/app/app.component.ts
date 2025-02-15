@@ -10,7 +10,7 @@ import { ResumeProjectComponent } from './components/resume-project/resume-proje
 import { ResumeTrainingComponent } from './components/resume-training/resume-training.component';
 import { ResumeEducationComponent } from './components/resume-education/resume-education.component';
 import { ResumeLanguageComponent } from './components/resume-language/resume-language.component';
-import { ResumeHobbiesComponent } from './components/resume-hobbies/resume-hobbies.component';
+import { ResumeLabelValuesComponent } from './components/resume-label-values/resume-label-values.component';
 import { JsonDataService } from './services/json-data.service';
 
 @Component({
@@ -20,7 +20,7 @@ import { JsonDataService } from './services/json-data.service';
     ResumeEducationComponent,
     ResumeExperienceComponent,
     ResumeHeaderComponent,
-    ResumeHobbiesComponent,
+    ResumeLabelValuesComponent,
     ResumeLanguageComponent,
     ResumeProjectComponent,
     ResumeTrainingComponent,
@@ -40,8 +40,8 @@ export class AppComponent {
 
     this.resume$ = this.route.queryParams.pipe(
       switchMap((params: Params) => {
-        const postfix = params['p'];
-        return this.jsonDataService.getJsonData(postfix);
+        const aspect = params['a'] || params['aspect'];
+        return this.jsonDataService.getJsonData(aspect);
       })
     );
   }

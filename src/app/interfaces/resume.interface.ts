@@ -1,19 +1,18 @@
 import { Education } from './education.interface';
 import { Experience } from './experience.interface';
 import { General } from './general.interface';
-import { Hobby } from './hobby.interface';
+import { LabelValues } from './label-values.interface';
 import { Language } from './language.interface';
 import { Project } from './project.interface';
-import { Skill } from './skill.interface';
 import { Training } from './training.interface';
 
 export interface Resume {
-  readonly education: Education;
-  readonly experience?: Experience;
   readonly general: General;
-  readonly language?: Language;
+  readonly experience?: Experience;
   readonly project?: Project;
-  readonly skills: Skill;
+  readonly skills?: LabelValues;
   readonly training?: Training;
-  readonly hobbies?: Hobby;
+  readonly education: Education;
+  readonly language?: Language;
+  readonly hobbies?: LabelValues;
 }

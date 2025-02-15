@@ -1,0 +1,14 @@
+<dl>
+  <dt>
+    <i class="fas big-icon {{ labelValues().style }}"></i>
+    <span class="{{ labelValues().labelClass }}">{{ labelValues().label }}</span>
+  </dt>
+  <dd>
+    <ul>
+      @for (hobby of labelValues().values; track $index) {
+        <li>{{ hobby }}</li>
+      }
+    </ul>
+  </dd>
+  <dd class="clear"></dd>
+</dl>
