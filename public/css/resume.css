@@ -21,6 +21,65 @@ body {
 .italic {
   font-style: italic;
 }
+.error {
+  margin: 10px;
+  font-weight: 900;
+}
+.error i {
+  color: red;
+}
+@keyframes rotateAndMove {
+  0% {
+    transform: rotate(0deg);
+    left: 0;
+    top: 0;
+  }
+  10% {
+    transform: rotate(90deg);
+    left: 0;
+    top: 0;
+  }
+  70% {
+    transform: rotate(90deg);
+    left: 30%;
+    top: 0;
+  }
+  80% {
+    transform: rotate(0deg);
+    left: 30%;
+    top: 0;
+  }
+  100% {
+    transform: rotate(0deg);
+    left: 30%;
+    top: -30px;
+  }
+}
+.rotate-move {
+  position: relative;
+  animation: rotateAndMove 15s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: 900;
+}
+.moving-icon {
+  animation: moveHorizontally 4s linear infinite;
+}
+@keyframes moveHorizontally {
+  0% {
+    transform: translate(0, 20px);
+  }
+
+  100% {
+    transform: translate(100px, 20px);
+  }
+}
 #page-wrap {
   width: 800px;
   margin: 10px auto 60px;

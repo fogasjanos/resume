@@ -7,6 +7,7 @@ import { Project } from './project.interface';
 import { Training } from './training.interface';
 
 export interface Resume {
+  readonly error?: boolean;
   readonly general: General;
   readonly experience?: Experience;
   readonly project?: Project;

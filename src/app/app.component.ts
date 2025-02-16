@@ -43,8 +43,8 @@ export class AppComponent {
         const aspect = params['a'] || params['aspect'];
         return this.jsonDataService.getJsonData(aspect).pipe(
           catchError((error) => {
-            console.error(`Error fetching resume data (resume-${aspect}.json): `, error);
-            return of(null);
+            console.error(`Error fetching resume data (resume-${aspect}.json):`, error);
+            return of({ error: true });
           })
         );
       })

@@ -1,34 +1,38 @@
 @if (resume$ | async; as resume) {
-  <div id="page-wrap">
-    <app-resume-header [general]="resume.general" />
+  @if (resume.error) {
+    <span class="error"><i class="fa-solid fa-bug rotate-move"></i> Something is wrong. Try again later.</span>
+  } @else {
+    <div id="page-wrap">
+      <app-resume-header [general]="resume.general" />
 
-    @if (resume.experience; as experience) {
-      <app-resume-experience [experience]="experience" />
-    }
+      @if (resume.experience; as experience) {
+        <app-resume-experience [experience]="experience" />
+      }
 
-    @if (resume.skills && !resume.skills.disabled) {
-      <app-resume-label-values [labelValues]="resume.skills" />
-    }
+      @if (resume.skills && !resume.skills.disabled) {
+        <app-resume-label-values [labelValues]="resume.skills" />
+      }
 
-    @if (resume.project; as project) {
-      <app-resume-project [project]="project" />
-    }
+      @if (resume.project; as project) {
+        <app-resume-project [project]="project" />
+      }
 
-    @if (resume.training; as training) {
-      <app-resume-training [training]="training" />
-    }
-    @if (resume.education; as education) {
-      <app-resume-education [education]="education" />
-    }
+      @if (resume.training; as training) {
+        <app-resume-training [training]="training" />
+      }
+      @if (resume.education; as education) {
+        <app-resume-education [education]="education" />
+      }
 
-    @if (resume.language; as language) {
-      <app-resume-language [language]="language" />
-    }
+      @if (resume.language; as language) {
+        <app-resume-language [language]="language" />
+      }
 
-    @if (resume.hobbies; as hobbies) {
-      <app-resume-label-values [labelValues]="hobbies" />
-    }
-  </div>
+      @if (resume.hobbies; as hobbies) {
+        <app-resume-label-values [labelValues]="hobbies" />
+      }
+    </div>
+  }
 } @else {
-  <h1><i class="fa-solid fa-bug"></i> Something is wrong. Try again later.</h1>
+  <div class="loading"><i class="fa-solid fa-shuttle-space moving-icon"></i> Loading...</div>
 }
