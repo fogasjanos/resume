@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, catchError } from 'rxjs/operators';
 import { Resume } from './interfaces/resume.interface';
 import { ResumeHeaderComponent } from './components/resume-header/resume-header.component';
 import { ResumeExperienceComponent } from './components/resume-experience/resume-experience.component';
@@ -41,7 +41,12 @@ export class AppComponent {
     this.resume$ = this.route.queryParams.pipe(
       switchMap((params: Params) => {
         const aspect = params['a'] || params['aspect'];
-        return this.jsonDataService.getJsonData(aspect);
+        return this.jsonDataService.getJsonData(aspect).pipe(
+          catchError((error) => {
+            console.error(`Error fetching resume data (resume-${aspect}.json): `, error);
+            return of(null);
+          })
+        );
       })
     );
   }
