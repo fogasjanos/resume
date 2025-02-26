@@ -9,6 +9,10 @@
         <app-resume-experience [experience]="experience" />
       }
 
+      @if (resume.technicalSkills; as technicalSkills) {
+        <app-resume-technical-skills [technicalSkill]="technicalSkills" />
+      }
+
       @if (resume.skills && !resume.skills.disabled) {
         <app-resume-label-values [labelValues]="resume.skills" />
       }

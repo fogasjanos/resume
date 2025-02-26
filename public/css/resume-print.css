@@ -23,14 +23,14 @@ body {
 }
 #page-wrap {
   width: 800px;
-  margin: 40px auto 60px;
+  margin: 10px auto 60px;
 }
 #pic {
   display: none;
 }
 h1 {
-  margin: 15px 0 0;
-  font-size: 28px;
+  margin: 10px 0 0;
+  font-size: 42px;
   font-weight: bold;
   letter-spacing: -2px;
 }
@@ -53,6 +53,9 @@ h2 span {
 p {
   margin: 0 0 16px 0;
 }
+.tech-skills p {
+  margin: 0 0 8px 16px;
+}
 a {
   color: #000;
   text-decoration: none;
@@ -62,49 +65,48 @@ a:hover {
   color: black;
 }
 ul {
-  margin: 0 0 17px 17px;
+  margin: 0 0 32px 32px;
 }
 #objective {
-  width: 500px;
   float: left;
 }
 #objective p {
-  font-family: Georgia, Serif;
+  font-family: Serif;
+  font-size: 18px;
   font-style: italic;
-  color: #665;
+  color: #555;
+  margin: 16px 16px 26px 16px;
+  text-align: justify;
 }
 dt {
+  display: block;
   font-style: italic;
   font-weight: bold;
-  font-size: 18px;
-  text-align: right;
+  font-size: 23px;
   padding: 0 15px 0 0;
-  width: 160px;
+  width: 100%;
   float: left;
-  border-right: 1px solid #999;
+}
+dt span {
+  display: block;
+  border-bottom: 1px solid #999;
 }
 dd {
-  width: 610px;
-  float: right;
+  margin-left: 70px;
 }
 dd.clear {
   float: none;
   margin: 0;
-}
-.lang-selector {
-  display: none;
+  height: 15px;
 }
 .not-list {
   list-style: none;
 }
 .big-icon {
   float: left;
-  font-size: 30px;
-  margin: 0 5px 0 0;
   height: 40px;
   width: 45px;
   text-align: center;
-  padding: 5px 0 0 0;
   color: #fd9f25;
 }
 .small-icon {
@@ -119,7 +121,27 @@ dd.clear {
 .colorLightBlue {
   color: #45b1ef;
 }
-
+.colorLightGreen {
+  color: #00a651;
+}
+.colorLightRed {
+  color: #ed1c24;
+}
+.colorLightYellow {
+  color: #ffcc00;
+}
+.colorLightOrange {
+  color: #f68b1f;
+}
+.colorLightPurple {
+  color: #92278f;
+}
+.colorLightBrown {
+  color: #8c6239;
+}
+.colorLightPink {
+  color: #e4a9c9;
+}
 .experience {
   color: #192e5b;
 }

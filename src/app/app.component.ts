@@ -12,6 +12,7 @@ import { ResumeEducationComponent } from './components/resume-education/resume-e
 import { ResumeLanguageComponent } from './components/resume-language/resume-language.component';
 import { ResumeLabelValuesComponent } from './components/resume-label-values/resume-label-values.component';
 import { JsonDataService } from './services/json-data.service';
+import { ResumeTechnicalSkillsComponent } from './components/resume-technical-skills/resume-technical-skills.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { JsonDataService } from './services/json-data.service';
     ResumeLanguageComponent,
     ResumeProjectComponent,
     ResumeTrainingComponent,
+    ResumeTechnicalSkillsComponent,
   ],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

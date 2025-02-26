@@ -1,0 +1,19 @@
+<dl>
+  <dt>
+    <i class="fas big-icon {{ technicalSkill().style }}"></i>
+    <span class="{{ technicalSkill().labelClass }}">{{ technicalSkill().label }}</span>
+  </dt>
+  <dd class="tech-skills">
+    @for (skill of technicalSkill().details; track $index) {
+      <strong>
+        {{ skill.label }}
+      </strong>
+      <p>
+        @if (skill.description) {
+          &#8226; {{ skill.description }}
+        }
+      </p>
+    }
+  </dd>
+  <dd class="clear"></dd>
+</dl>
