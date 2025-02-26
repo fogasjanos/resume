@@ -27,9 +27,7 @@
   "experience": {
     "companies": [
       {
-        "description": [
-          "Description of the current job"
-        ],
+        "description": ["Description of the current job"],
         "from": 2024,
         "name": "ACME Inc.",
         "position": "Senior Looney Toon",
@@ -38,15 +36,10 @@
         "url": "https://www.ac.me"
       },
       {
-        "description": [
-          "Other things I do..."
-        ]
+        "description": ["Other things I do..."]
       },
       {
-        "description": [
-          "Things I do.",
-          "Other things I do."
-        ],
+        "description": ["Things I do.", "Other things I do."],
         "from": 2020,
         "name": "Company Name",
         "position": "Best character",
@@ -55,20 +48,14 @@
         "url": "https://fake.url/"
       },
       {
-        "description": [
-          "Make the best cartoon ever."
-        ],
+        "description": ["Make the best cartoon ever."],
         "technologies": "Colors, even more colors."
       },
       {
-        "description": [
-          "Coloring"
-        ]
+        "description": ["Coloring"]
       },
       {
-        "description": [
-          "Drawing"
-        ],
+        "description": ["Drawing"],
         "from": 2016,
         "name": "Practicing",
         "position": "Learning the basics",
@@ -80,14 +67,27 @@
     "style": "fa-laptop-code",
     "labelClass": "colorLightBlue"
   },
+  "technicalSkills": {
+    "label": "Technical Skills",
+    "labelClass": "",
+    "style": "fa-wrench colorLightGreen",
+    "details": [
+      {
+        "label": "Coloring:",
+        "description": "Crayon, pencil, watercolor"
+      },
+      {
+        "label": "Singing:",
+        "description": "Karaoke, shower"
+      }
+    ]
+  },
   "skills": {
     "disabled": false,
     "label": "Personal skills and qualities",
     "labelClass": "colorLightBlue",
     "style": "fa-wrench",
-	"values": [
-      "willingness to code"
-    ]
+    "values": ["willingness to code"]
   },
   "project": {
     "label": "Hobby projects",
@@ -139,10 +139,6 @@
     "label": "Hobbies",
     "labelClass": "colorLightBlue",
     "style": "fa-dice",
-    "values": [
-      "Coding",
-      "Reading",
-      "Angular"
-    ]
+    "values": ["Coding", "Reading", "Angular"]
   }
 }
