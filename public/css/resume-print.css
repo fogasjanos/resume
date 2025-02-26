@@ -67,6 +67,29 @@ a:hover {
 ul {
   margin: 0 0 20px 32px;
 }
+.languages-list ul,
+.hobby-list ul {
+  list-style-type: none;
+  color: black;
+  margin-left: 0;
+}
+.languages-list ul li,
+.hobby-list ul li {
+  display: inline-block;
+  margin-right: 18px;
+}
+.languages-list ul li::before,
+.hobby-list ul li::before {
+  display: inline-block;
+  margin-right: 10px;
+  content: '•';
+  padding-right: 8px;
+  color: black;
+}
+.languages-list ul li:first-child::before,
+.hobby-list ul li:first-child::before {
+  content: '';
+}
 #objective {
   float: left;
 }

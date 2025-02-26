@@ -3,7 +3,7 @@
     <i class="fas big-icon {{ labelValues().style }}"></i>
     <span class="{{ labelValues().labelClass }}">{{ labelValues().label }}</span>
   </dt>
-  <dd>
+  <dd class="{{ labelValues().className }}">
     <ul>
       @for (hobby of labelValues().values; track $index) {
         <li>{{ hobby }}</li>

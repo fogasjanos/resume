@@ -3,7 +3,7 @@
     <i class="fas big-icon {{ language().style }}"></i>
     <span class="{{ language().labelClass }}">{{ language().label }}</span>
   </dt>
-  <dd>
+  <dd class="languages-list">
     <ul>
       @for (language of language().languages; track $index) {
         <li>
