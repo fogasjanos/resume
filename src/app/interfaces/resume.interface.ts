@@ -8,8 +8,10 @@ import { Training } from './training.interface';
 import { TechnicalSkill } from './technical-skill.interface';
 
 export interface Resume {
-  readonly error?: boolean;
+  readonly error?: false;
   readonly general: General;
+  readonly summary?: string;
+  readonly coreSkills?: TechnicalSkill;
   readonly experience?: Experience;
   readonly technicalSkills?: TechnicalSkill;
   readonly project?: Project;

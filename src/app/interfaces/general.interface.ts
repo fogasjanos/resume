@@ -8,5 +8,7 @@ export interface General {
   readonly linkedIn?: LabelValue;
   readonly city?: City;
   readonly name: string;
+  readonly headline?: string;
+  readonly website?: LabelValue;
   readonly objective?: string;
 }

@@ -1,16 +1,1 @@
-<dl>
-  <dt>
-    <i class="fas big-icon {{ language().style }}"></i>
-    <span class="{{ language().labelClass }}">{{ language().label }}</span>
-  </dt>
-  <dd class="languages-list">
-    <ul>
-      @for (language of language().languages; track $index) {
-        <li>
-          <strong>{{ language.name }}</strong> ({{ language.level }})
-        </li>
-      }
-    </ul>
-  </dd>
-  <dd class="clear"></dd>
-</dl>
+<section aria-labelledby="language-heading"><h2 id="language-heading"><i class="fa-solid section-icon {{ language().style || 'fa-language' }}" aria-hidden="true"></i>{{ language().label }}</h2><ul class="inline-list">@for (item of language().languages; track $index) { <li><strong>{{ item.name }}</strong> — {{ item.level }}</li> }</ul></section>

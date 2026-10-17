@@ -1,35 +1,23 @@
-<dl>
-  <dt>
-    <i class="fas big-icon {{ experience().style }}"></i>
-    <span class="{{ experience().labelClass }}">{{ experience().label }}</span>
-  </dt>
-  <dd>
-    @for (company of experience().companies; track $index) {
-      @if (company.position) {
-        <h2>
-          {{ company.position }}
-          <span>
-            @if (company.name) {
-              @if (company.url) {
-                <a [href]="company.url" target="_blank">{{ company.name }}</a>
-              } @else {
-                {{ company.name }}
-              }
-              –
-            }
-            {{ company.from + '-' + company.to }}
-          </span>
-        </h2>
+<section aria-labelledby="experience-heading">
+  <h2 id="experience-heading"><i class="fa-solid section-icon {{ experience().style || 'fa-laptop-code' }}" aria-hidden="true"></i>{{ experience().label }}</h2>
+  @for (company of experience().companies; track $index) {
+    <article class="experience-entry" [class.continuation]="!company.name && !company.position">
+      @if (company.name || company.position) {
+        <header class="entry-header">
+          <div>
+            @if (company.name) { <h3>@if (company.url) { <a [href]="company.url">{{ company.name }}</a> } @else { {{ company.name }} }</h3> }
+            @if (company.position) { <p class="role">{{ company.position }}</p> }
+          </div>
+          @if (company.from || company.to || company.location) {
+            <p class="entry-meta">@if (company.from || company.to) { <span>{{ company.from }}@if (company.to) { – {{ company.to }} }</span> }@if (company.location) { <span>{{ company.location }}</span> }</p>
+          }
+        </header>
       }
-      <ul>
-        @for (description of company.description; track $index) {
-          <li [innerHTML]="description"></li>
-        }
-        @if (company.technologies) {
-          <li class="not-list italic">[{{ company.technologies }}]</li>
-        }
-      </ul>
-    }
-  </dd>
-  <dd class="clear"></dd>
-</dl>
+      @if (company.summary) { <p>{{ company.summary }}</p> }
+      @if (company.highlights || company.description; as highlights) {
+        <ul>@for (highlight of highlights; track $index) { <li [innerHTML]="highlight"></li> }</ul>
+      }
+      @if (company.technologies) { <p class="technologies"><strong>Technologies:</strong> {{ company.technologies }}</p> }
+    </article>
+  }
+</section>

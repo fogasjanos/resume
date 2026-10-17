@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
-import { switchMap, catchError } from 'rxjs/operators';
+import { switchMap, catchError, tap } from 'rxjs/operators';
 import { Resume } from './interfaces/resume.interface';
 import { ResumeHeaderComponent } from './components/resume-header/resume-header.component';
 import { ResumeExperienceComponent } from './components/resume-experience/resume-experience.component';
@@ -35,7 +35,7 @@ export class AppComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly title = 'resume-app';
 
-  resume$!: Observable<Resume>;
+  resume$!: Observable<Resume | { error: true }>;
 
   constructor() {
     document.title = this.title;
@@ -44,9 +44,10 @@ export class AppComponent {
       switchMap((params: Params) => {
         const aspect = params['a'] || params['aspect'];
         return this.jsonDataService.getJsonData(aspect).pipe(
+          tap((resume) => { document.title = `${resume.general.name} — Résumé`; }),
           catchError((error) => {
             console.error(`Error fetching resume data (resume-${aspect}.json):`, error);
-            return of({ error: true });
+            return of({ error: true as const });
           })
         );
       })

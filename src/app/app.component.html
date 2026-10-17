@@ -1,42 +1,41 @@
 @if (resume$ | async; as resume) {
   @if (resume.error) {
-    <span class="error"><i class="fa-solid fa-bug rotate-move"></i> Something is wrong. Try again later.</span>
+    <p class="status-message" role="alert">Unable to load the résumé. Please try again later.</p>
   } @else {
-    <div id="page-wrap">
+    <main id="page-wrap">
       <app-resume-header [general]="resume.general" />
-
-      @if (resume.experience; as experience) {
-        <app-resume-experience [experience]="experience" />
+      @if (resume.summary || resume.general.objective; as summary) {
+        <section aria-labelledby="summary-heading"><h2 id="summary-heading"><i class="fa-solid fa-user section-icon" aria-hidden="true"></i>Professional Summary</h2><p [innerHTML]="summary"></p></section>
       }
-
-      @if (resume.technicalSkills; as technicalSkills) {
-        <app-resume-technical-skills [technicalSkill]="technicalSkills" />
+      @if (resume.coreSkills && !resume.coreSkills.disabled) {
+        <app-resume-technical-skills [technicalSkill]="resume.coreSkills" [class.no-print]="resume.coreSkills.print === false" />
       }
-
+      @if (resume.technicalSkills && !resume.technicalSkills.disabled && !resume.coreSkills) {
+        <app-resume-technical-skills [technicalSkill]="resume.technicalSkills" [class.no-print]="resume.technicalSkills.print === false" />
+      }
+      @if (resume.experience && !resume.experience.disabled) {
+        <app-resume-experience [experience]="resume.experience" [class.no-print]="resume.experience.print === false" />
+      }
       @if (resume.skills && !resume.skills.disabled) {
-        <app-resume-label-values [labelValues]="resume.skills" />
+        <app-resume-label-values [labelValues]="resume.skills" [class.no-print]="resume.skills.print === false" />
       }
-
-      @if (resume.project; as project) {
-        <app-resume-project [project]="project" />
+      @if (resume.project && !resume.project.disabled) {
+        <app-resume-project [project]="resume.project" [class.no-print]="resume.project.print === false" />
       }
-
-      @if (resume.training; as training) {
-        <app-resume-training [training]="training" />
+      @if (resume.training && !resume.training.disabled) {
+        <app-resume-training [training]="resume.training" [class.no-print]="resume.training.print === false" />
       }
-      @if (resume.education; as education) {
-        <app-resume-education [education]="education" />
+      @if (resume.education && !resume.education.disabled) {
+        <app-resume-education [education]="resume.education" [class.no-print]="resume.education.print === false" />
       }
-
-      @if (resume.language; as language) {
-        <app-resume-language [language]="language" />
+      @if (resume.language && !resume.language.disabled) {
+        <app-resume-language [language]="resume.language" [class.no-print]="resume.language.print === false" />
       }
-
-      @if (resume.hobbies; as hobbies) {
-        <app-resume-label-values [labelValues]="hobbies" />
+      @if (resume.hobbies && !resume.hobbies.disabled) {
+        <app-resume-label-values [labelValues]="resume.hobbies" [class.no-print]="resume.hobbies.print === false" />
       }
-    </div>
+    </main>
   }
 } @else {
-  <div class="loading"><i class="fa-solid fa-shuttle-space moving-icon"></i> Loading...</div>
+  <p class="status-message" role="status">Loading résumé…</p>
 }

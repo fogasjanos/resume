@@ -22,24 +22,33 @@
       "label": "Location",
       "value": "Walhalla",
       "url": "https://www.google.com/maps/place/Walhalla"
-    }
+    },
+    "headline": "Senior Software Engineer | Backend & Platform Engineering"
   },
   "experience": {
     "companies": [
       {
-        "description": ["Description of the current job"],
         "from": 2024,
         "name": "ACME Inc.",
         "position": "Senior Looney Toon",
         "technologies": "Cartoon, 2D, 3D",
         "to": "present",
-        "url": "https://www.ac.me"
+        "url": "https://www.ac.me",
+        "summary": "Technical ownership of reusable integration services.",
+        "highlights": [
+          "Description of the current job"
+        ]
       },
       {
-        "description": ["Other things I do..."]
+        "description": [
+          "Other things I do..."
+        ]
       },
       {
-        "description": ["Things I do.", "Other things I do."],
+        "description": [
+          "Things I do.",
+          "Other things I do."
+        ],
         "from": 2020,
         "name": "Company Name",
         "position": "Best character",
@@ -48,14 +57,20 @@
         "url": "https://fake.url/"
       },
       {
-        "description": ["Make the best cartoon ever."],
+        "description": [
+          "Make the best cartoon ever."
+        ],
         "technologies": "Colors, even more colors."
       },
       {
-        "description": ["Coloring"]
+        "description": [
+          "Coloring"
+        ]
       },
       {
-        "description": ["Drawing"],
+        "description": [
+          "Drawing"
+        ],
         "from": 2016,
         "name": "Practicing",
         "position": "Learning the basics",
@@ -87,7 +102,9 @@
     "label": "Personal skills and qualities",
     "labelClass": "colorLightBlue",
     "style": "fa-wrench",
-    "values": ["willingness to code"]
+    "values": [
+      "willingness to code"
+    ]
   },
   "project": {
     "label": "Hobby projects",
@@ -109,7 +126,8 @@
         "name": "Angular",
         "organizer": "Training"
       }
-    ]
+    ],
+    "print": false
   },
   "education": {
     "label": "Education, certificates",
@@ -139,6 +157,24 @@
     "label": "Hobbies",
     "labelClass": "colorLightBlue",
     "style": "fa-dice",
-    "values": ["Coding", "Reading", "Angular"]
+    "values": [
+      "Coding",
+      "Reading",
+      "Angular"
+    ]
+  },
+  "summary": "Software engineer focused on reliable backend services, integration platforms and engineering quality.",
+  "coreSkills": {
+    "label": "Core Expertise",
+    "details": [
+      {
+        "label": "Backend Engineering",
+        "description": "Java \u00b7 Spring Boot \u00b7 REST APIs \u00b7 PostgreSQL"
+      },
+      {
+        "label": "Engineering Practices",
+        "description": "System design \u00b7 Code review \u00b7 Mentoring"
+      }
+    ]
   }
 }

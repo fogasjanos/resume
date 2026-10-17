@@ -1,185 +1,35 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-body {
-  font:
-    16px Helvetica,
-    Sans-Serif;
-  line-height: 24px;
-  color: #34263d;
-}
-.clear {
-  clear: both;
-}
-.right {
-  float: right;
-}
-.left {
-  float: left;
-}
-.italic {
-  font-style: italic;
-}
-#page-wrap {
-  width: 800px;
-  margin: 10px auto 60px;
-}
-#pic {
-  display: none;
-}
-h1 {
-  margin: 10px 0 0;
-  font-size: 42px;
-  font-weight: bold;
-  letter-spacing: -2px;
-}
-#contact-info {
-  border-bottom: 1px solid #555;
-}
-h2 {
-  font-size: 20px;
-  margin: 0 0 6px 0;
-  position: relative;
-}
-h2 span {
-  float: right;
-  margin-top: 1px;
-  font-style: italic;
-  font-family: Georgia, Serif;
-  font-size: 16px;
-  font-weight: normal;
-}
-p {
-  margin: 0 0 16px 0;
-}
-.tech-skills p {
-  margin: 0 0 8px 16px;
-}
-a {
-  color: #000;
-  text-decoration: none;
-}
-a:hover {
-  border-bottom-style: solid;
-  color: black;
-}
-ul {
-  margin: 0 0 20px 32px;
-}
-.languages-list ul,
-.hobby-list ul {
-  list-style-type: none;
-  color: black;
-  margin-left: 0;
-}
-.languages-list ul li,
-.hobby-list ul li {
-  display: inline-block;
-  margin-right: 18px;
-}
-.languages-list ul li::before,
-.hobby-list ul li::before {
-  display: inline-block;
-  margin-right: 10px;
-  content: '•';
-  padding-right: 8px;
-  color: black;
-}
-.languages-list ul li:first-child::before,
-.hobby-list ul li:first-child::before {
-  content: '';
-}
-#objective {
-  float: left;
-}
-#objective p {
-  font-family: Serif;
-  font-size: 18px;
-  font-style: italic;
-  color: #555;
-  margin: 16px 16px 26px 16px;
-  text-align: justify;
-}
-dt {
-  display: block;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 23px;
-  padding: 0 15px 0 0;
-  width: 100%;
-  float: left;
-}
-dt span {
-  display: block;
-  border-bottom: 1px solid #999;
-}
-dd {
-  margin-left: 70px;
-}
-dd.clear {
-  float: none;
-  margin: 0;
-  height: 15px;
-}
-.not-list {
-  list-style: none;
-}
-.big-icon {
-  float: left;
-  height: 40px;
-  width: 45px;
-  text-align: center;
-  color: #fd9f25;
-}
-.small-icon {
-  text-align: center;
-  margin: 0 9px 0 0;
-  width: 16px;
-  color: #fd9f25;
-}
-.colorDark {
-  color: #192e5b;
-}
-.colorLightBlue {
-  color: #45b1ef;
-}
-.colorLightGreen {
-  color: #00a651;
-}
-.colorLightRed {
-  color: #ed1c24;
-}
-.colorLightYellow {
-  color: #ffcc00;
-}
-.colorLightOrange {
-  color: #f68b1f;
-}
-.colorLightPurple {
-  color: #92278f;
-}
-.colorLightBrown {
-  color: #8c6239;
-}
-.colorLightPink {
-  color: #e4a9c9;
-}
-.experience {
-  color: #192e5b;
-}
-.projects {
-  color: #f2a104;
-}
-.trainings {
-  color: #00743f;
-}
-.education {
-  color: #f25117;
-}
-.languages {
-  color: #1d65a6;
-}
-.hobbies {
-  color: #72a2c0;
+@page { size: A4; margin: 10mm 14mm; }
+@media print {
+  body { background: white; color: #111827; font-family: Arial, Helvetica, sans-serif; font-size: 9.5pt; line-height: 1.25; }
+  #page-wrap { max-width: none; margin: 0; padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  #contact-info { padding-bottom: 12px; border-bottom-width: 2px; }
+  h1 { font-size: 26pt; }
+  .headline { font-size: 12pt; margin: 6px 0; }
+  .contact-list { margin-top: 8px; font-size: 8.5pt; gap: 3px 14px; }
+  section { margin-top: 10px; }
+  p { margin-bottom: 6px; }
+  h2 { margin-bottom: 6px; padding-bottom: 3px; font-size: 9pt; }
+  h3 { font-size: 10.5pt; }
+  h2, h3, .entry-header { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  li, .education-entry, .expertise-list > div { break-inside: avoid; }
+  .experience-entry { margin-bottom: 10px; break-inside: avoid; }
+  .experience-entry.continuation { margin-top: -7px; }
+  .entry-header { display: flex; flex-direction: row; gap: 10px; margin-bottom: 5px; }
+  .entry-meta { text-align: right; font-size: 8.5pt; }
+  .entry-meta span { display: block; }
+  .role { font-size: 9.5pt; }
+  .technologies, .education-entry p { font-size: 8.5pt; }
+  .expertise-list { font-size: 9pt; }
+  .expertise-list > div { grid-template-columns: 155px 1fr; margin-bottom: 4px; }
+  ul { margin: 5px 0 8px; }
+  li { margin-bottom: 2px; }
+  .education-entry { margin-bottom: 6px; }
+  .education-entry .entry-header { margin-bottom: 1px; }
+  .expertise-list > div { display: block; }
+  .expertise-list dt, .expertise-list dd { display: inline; }
+  .expertise-list dt::after { content: ": "; }
+  .contact-icon { display: none; }
+  a { text-decoration: none; }
+  .no-print { display: none !important; }
 }

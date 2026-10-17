@@ -1,14 +1,1 @@
-<dl>
-  <dt>
-    <i class="fas big-icon {{ training().style }}"></i>
-    <span class="{{ training().labelClass }}">{{ training().label }}</span>
-  </dt>
-  <dd>
-    <ul>
-      @for (training of training().trainings; track $index) {
-        <li>{{ training.name }} – {{ training.organizer }}</li>
-      }
-    </ul>
-  </dd>
-  <dd class="clear"></dd>
-</dl>
+<section aria-labelledby="training-heading"><h2 id="training-heading"><i class="fa-solid section-icon {{ training().style || 'fa-book-open-reader' }}" aria-hidden="true"></i>{{ training().label }}</h2><ul>@for (item of training().trainings; track $index) { <li><strong>{{ item.name }}</strong> — {{ item.organizer }}</li> }</ul></section>
