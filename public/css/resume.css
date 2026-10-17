@@ -8,12 +8,12 @@ h1 { margin: 0; font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.15; letter-
 .headline { margin: 10px 0 14px; font-size: 1.15rem; color: var(--accent); font-weight: 600; }
 .contact-list { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 16px; font-size: .875rem; font-style: normal; color: var(--muted); }
 a { color: inherit; text-decoration-color: #a7bbc1; text-underline-offset: 3px; overflow-wrap: anywhere; }
-a:hover { color: var(--accent); }
+a:hover { color: var(--accent); text-decoration-color: currentColor; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 section { margin-top: 28px; }
 h2 { margin: 0 0 14px; padding-bottom: 7px; border-bottom: 1px solid var(--rule); color: var(--accent); font-size: .85rem; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
 h3 { margin: 0; font-size: 1.06rem; line-height: 1.4; }
-h3 a { text-decoration: none; }
+h3 a { text-decoration-line: underline; text-decoration-thickness: 1px; text-decoration-color: #94a3b8; }
 p { margin: 0 0 10px; }
 ul { margin: 8px 0 12px; padding-left: 21px; }
 li { padding-left: 3px; margin-bottom: 5px; }

@@ -30,6 +30,6 @@
   .expertise-list dt, .expertise-list dd { display: inline; }
   .expertise-list dt::after { content: ": "; }
   .contact-icon { display: none; }
-  a { text-decoration: none; }
+  a, h3 a { text-decoration: none; }
   .no-print { display: none !important; }
 }

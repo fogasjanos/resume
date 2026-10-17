@@ -1,23 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { ResumeTechnicalSkillsComponent } from './resume-technical-skills.component';
 
-import { ResumeEducationComponent as ResumeTechnialSkillComponent } from './resume-technical-skills.component';
-
-describe('ResumeEducationComponent', () => {
-  let component: ResumeTechnialSkillComponent;
-  let fixture: ComponentFixture<ResumeTechnialSkillComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ResumeTechnialSkillComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(ResumeTechnialSkillComponent);
-    component = fixture.componentInstance;
+describe('ResumeTechnicalSkillsComponent', () => {
+  it('renders its supplied résumé data', async () => {
+    await TestBed.configureTestingModule({ imports: [ResumeTechnicalSkillsComponent] }).compileComponents();
+    const fixture = TestBed.createComponent(ResumeTechnicalSkillsComponent);
+    fixture.componentRef.setInput('technicalSkill', {
+      label: 'Core Expertise',
+      details: [{ label: 'Backend', description: 'Java · Spring Boot' }],
+    });
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('dd')?.textContent).toContain('Java · Spring Boot');
   });
 });

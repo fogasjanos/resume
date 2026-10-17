@@ -1,22 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { ResumeLabelValuesComponent } from './resume-label-values.component';
 
-describe('ResumeHobbiesComponent', () => {
-  let component: ResumeLabelValuesComponent;
-  let fixture: ComponentFixture<ResumeLabelValuesComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ResumeLabelValuesComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(ResumeLabelValuesComponent);
-    component = fixture.componentInstance;
+describe('ResumeLabelValuesComponent', () => {
+  it('renders its supplied résumé data', async () => {
+    await TestBed.configureTestingModule({ imports: [ResumeLabelValuesComponent] }).compileComponents();
+    const fixture = TestBed.createComponent(ResumeLabelValuesComponent);
+    fixture.componentRef.setInput('labelValues', { label: 'Interests', values: ['Reading'] });
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('li')?.textContent).toContain('Reading');
   });
 });

@@ -1,23 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { ResumeEducationComponent } from './resume-education.component';
 
 describe('ResumeEducationComponent', () => {
-  let component: ResumeEducationComponent;
-  let fixture: ComponentFixture<ResumeEducationComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ResumeEducationComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(ResumeEducationComponent);
-    component = fixture.componentInstance;
+  it('renders its supplied résumé data', async () => {
+    await TestBed.configureTestingModule({ imports: [ResumeEducationComponent] }).compileComponents();
+    const fixture = TestBed.createComponent(ResumeEducationComponent);
+    fixture.componentRef.setInput('education', {
+      label: 'Education',
+      schools: [{ degree: 'Computer Science', school: 'Example University', faculty: 'Informatics', year: 2008 }],
+    });
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('h3')?.textContent).toContain('Computer Science');
   });
 });

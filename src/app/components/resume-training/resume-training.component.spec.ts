@@ -1,23 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { ResumeTrainingComponent } from './resume-training.component';
 
 describe('ResumeTrainingComponent', () => {
-  let component: ResumeTrainingComponent;
-  let fixture: ComponentFixture<ResumeTrainingComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ResumeTrainingComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(ResumeTrainingComponent);
-    component = fixture.componentInstance;
+  it('renders its supplied résumé data', async () => {
+    await TestBed.configureTestingModule({ imports: [ResumeTrainingComponent] }).compileComponents();
+    const fixture = TestBed.createComponent(ResumeTrainingComponent);
+    fixture.componentRef.setInput('training', { label: 'Training', trainings: [{ name: 'Security', organizer: 'Example Academy' }] });
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('li')?.textContent).toContain('Example Academy');
   });
 });

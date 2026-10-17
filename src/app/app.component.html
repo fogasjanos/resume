@@ -1,11 +1,17 @@
-@if (resume$ | async; as resume) {
-  @if (resume.error) {
-    <p class="status-message" role="alert">Unable to load the résumé. Please try again later.</p>
+@if (state$ | async; as state) {
+  @if (state.status === 'loading') {
+    <p class="status-message" role="status">Loading résumé…</p>
+  } @else if (state.status === 'error') {
+    <p class="status-message" role="alert">{{ state.message }}</p>
   } @else {
+    @let resume = state.resume;
     <main id="page-wrap">
       <app-resume-header [general]="resume.general" />
       @if (resume.summary || resume.general.objective; as summary) {
-        <section aria-labelledby="summary-heading"><h2 id="summary-heading"><i class="fa-solid fa-user section-icon" aria-hidden="true"></i>Professional Summary</h2><p [innerHTML]="summary"></p></section>
+        <section aria-labelledby="summary-heading">
+          <h2 id="summary-heading"><i class="fa-solid fa-user section-icon" aria-hidden="true"></i>Professional Summary</h2>
+          <p [innerHTML]="summary"></p>
+        </section>
       }
       @if (resume.coreSkills && !resume.coreSkills.disabled) {
         <app-resume-technical-skills [technicalSkill]="resume.coreSkills" [class.no-print]="resume.coreSkills.print === false" />
@@ -36,6 +42,4 @@
       }
     </main>
   }
-} @else {
-  <p class="status-message" role="status">Loading résumé…</p>
 }

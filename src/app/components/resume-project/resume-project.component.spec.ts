@@ -1,23 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { ResumeProjectComponent } from './resume-project.component';
 
 describe('ResumeProjectComponent', () => {
-  let component: ResumeProjectComponent;
-  let fixture: ComponentFixture<ResumeProjectComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ResumeProjectComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(ResumeProjectComponent);
-    component = fixture.componentInstance;
+  it('renders its supplied résumé data', async () => {
+    await TestBed.configureTestingModule({ imports: [ResumeProjectComponent] }).compileComponents();
+    const fixture = TestBed.createComponent(ResumeProjectComponent);
+    fixture.componentRef.setInput('project', { label: 'Projects', projects: [{ name: 'Example Project', description: 'A useful tool.' }] });
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('li')?.textContent).toContain('A useful tool.');
   });
 });

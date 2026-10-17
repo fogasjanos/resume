@@ -3,5 +3,5 @@ import { Styleable } from './styleable.interface';
 
 export interface Education extends Styleable {
   readonly label: string;
-  readonly schools: School[];
+  readonly schools: readonly School[];
 }

@@ -3,5 +3,5 @@ import { Styleable } from './styleable.interface';
 
 export interface Language extends Styleable {
   readonly label: string;
-  readonly languages: LanguageDetail[];
+  readonly languages: readonly LanguageDetail[];
 }

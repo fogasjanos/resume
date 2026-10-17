@@ -9,7 +9,7 @@
             @if (company.position) { <p class="role">{{ company.position }}</p> }
           </div>
           @if (company.from || company.to || company.location) {
-            <p class="entry-meta">@if (company.from || company.to) { <span>{{ company.from }}@if (company.to) { – {{ company.to }} }</span> }@if (company.location) { <span>{{ company.location }}</span> }</p>
+            <p class="entry-meta">@if (company.from || company.to) { <span>{{ company.from }}@if (company.to) { - {{ company.to }} }</span> }@if (company.location) { <span>{{ company.location }}</span> }</p>
           }
         </header>
       }

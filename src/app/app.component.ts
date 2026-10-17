@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, map, distinctUntilChanged, startWith, switchMap, catchError, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-import { ActivatedRoute, Params } from '@angular/router';
-import { switchMap, catchError, tap } from 'rxjs/operators';
-import { Resume } from './interfaces/resume.interface';
+import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { ResumeState, resumeErrorMessage } from './interfaces/resume-state';
 import { ResumeHeaderComponent } from './components/resume-header/resume-header.component';
 import { ResumeExperienceComponent } from './components/resume-experience/resume-experience.component';
 import { ResumeProjectComponent } from './components/resume-project/resume-project.component';
@@ -33,24 +33,29 @@ import { ResumeTechnicalSkillsComponent } from './components/resume-technical-sk
 export class AppComponent {
   private readonly jsonDataService = inject(JsonDataService);
   private readonly route = inject(ActivatedRoute);
-  private readonly title = 'resume-app';
+  private readonly title = inject(Title);
 
-  resume$!: Observable<Resume | { error: true }>;
-
-  constructor() {
-    document.title = this.title;
-
-    this.resume$ = this.route.queryParams.pipe(
-      switchMap((params: Params) => {
-        const aspect = params['a'] || params['aspect'];
-        return this.jsonDataService.getJsonData(aspect).pipe(
-          tap((resume) => { document.title = `${resume.general.name} — Résumé`; }),
-          catchError((error) => {
-            console.error(`Error fetching resume data (resume-${aspect}.json):`, error);
-            return of({ error: true as const });
-          })
-        );
-      })
-    );
-  }
+  readonly state$: Observable<ResumeState> = this.route.queryParamMap.pipe(
+    map((params) => params.get('a') || params.get('aspect') || undefined),
+    distinctUntilChanged(),
+    switchMap((aspect) =>
+      this.jsonDataService.getJsonData(aspect).pipe(
+        map((resume): ResumeState => ({ status: 'ready', resume })),
+        catchError((error: unknown) => {
+          console.error('Error loading résumé:', error);
+          return of<ResumeState>({ status: 'error', message: resumeErrorMessage(error) });
+        }),
+        startWith<ResumeState>({ status: 'loading' })
+      )
+    ),
+    tap((state) =>
+      this.title.setTitle(
+        state.status === 'ready'
+          ? `${state.resume.general.name} - Résumé`
+          : state.status === 'loading'
+            ? 'Loading résumé…'
+            : 'Résumé unavailable'
+      )
+    )
+  );
 }
