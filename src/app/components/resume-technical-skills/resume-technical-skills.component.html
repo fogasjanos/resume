@@ -1,8 +1,11 @@
 <section [attr.aria-label]="technicalSkill().label">
-  <h2><i class="fa-solid section-icon {{ technicalSkill().style || 'fa-wrench' }}" aria-hidden="true"></i>{{ technicalSkill().label }}</h2>
+  <h2><app-resume-icon class="section-icon" [name]="technicalSkill().style || 'fa-wrench'" />{{ technicalSkill().label }}</h2>
   <dl class="expertise-list">
     @for (skill of technicalSkill().details; track $index) {
-      <div><dt>{{ skill.label }}</dt><dd>{{ skill.description }}</dd></div>
+      <div>
+        <dt>{{ skill.label }}</dt>
+        <dd>{{ skill.description }}</dd>
+      </div>
     }
   </dl>
 </section>

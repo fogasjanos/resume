@@ -1,1 +1,10 @@
-<section aria-labelledby="language-heading"><h2 id="language-heading"><i class="fa-solid section-icon {{ language().style || 'fa-language' }}" aria-hidden="true"></i>{{ language().label }}</h2><ul class="inline-list">@for (item of language().languages; track $index) { <li><strong>{{ item.name }}</strong> - {{ item.level }}</li> }</ul></section>
+<section aria-labelledby="language-heading">
+  <h2 id="language-heading"><app-resume-icon class="section-icon" [name]="language().style || 'fa-language'" />{{ language().label }}</h2>
+  <ul class="inline-list">
+    @for (item of language().languages; track $index) {
+      <li>
+        <strong>{{ item.name }}</strong> - {{ item.level }}
+      </li>
+    }
+  </ul>
+</section>

@@ -1,1 +1,8 @@
-<section [attr.aria-label]="labelValues().label"><h2><i class="fa-solid section-icon {{ labelValues().style || 'fa-list' }}" aria-hidden="true"></i>{{ labelValues().label }}</h2><ul class="inline-list">@for (value of labelValues().values; track $index) { <li>{{ value }}</li> }</ul></section>
+<section [attr.aria-label]="labelValues().label">
+  <h2><app-resume-icon class="section-icon" [name]="labelValues().style || 'fa-list'" />{{ labelValues().label }}</h2>
+  <ul class="inline-list">
+    @for (value of labelValues().values; track $index) {
+      <li>{{ value }}</li>
+    }
+  </ul>
+</section>

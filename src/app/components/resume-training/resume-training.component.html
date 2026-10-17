@@ -1,1 +1,12 @@
-<section aria-labelledby="training-heading"><h2 id="training-heading"><i class="fa-solid section-icon {{ training().style || 'fa-book-open-reader' }}" aria-hidden="true"></i>{{ training().label }}</h2><ul>@for (item of training().trainings; track $index) { <li><strong>{{ item.name }}</strong> - {{ item.organizer }}</li> }</ul></section>
+<section aria-labelledby="training-heading">
+  <h2 id="training-heading">
+    <app-resume-icon class="section-icon" [name]="training().style || 'fa-book-open-reader'" />{{ training().label }}
+  </h2>
+  <ul>
+    @for (item of training().trainings; track $index) {
+      <li>
+        <strong>{{ item.name }}</strong> - {{ item.organizer }}
+      </li>
+    }
+  </ul>
+</section>

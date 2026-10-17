@@ -1,6 +1,19 @@
 <section aria-labelledby="education-heading">
-  <h2 id="education-heading"><i class="fa-solid section-icon {{ education().style || 'fa-graduation-cap' }}" aria-hidden="true"></i>{{ education().label }}</h2>
+  <h2 id="education-heading">
+    <app-resume-icon class="section-icon" [name]="education().style || 'fa-graduation-cap'" />{{ education().label }}
+  </h2>
   @for (school of education().schools; track $index) {
-    <article class="education-entry"><div class="entry-header"><h3>{{ school.degree }}</h3><p class="entry-meta">{{ school.year }}</p></div><p>{{ school.school }}@if (school.faculty) { · {{ school.faculty }} }</p></article>
+    <article class="education-entry">
+      <div class="entry-header">
+        <h3>{{ school.degree }}</h3>
+        <p class="entry-meta">{{ school.year }}</p>
+      </div>
+      <p>
+        {{ school.school }}
+        @if (school.faculty) {
+          · {{ school.faculty }}
+        }
+      </p>
+    </article>
   }
 </section>

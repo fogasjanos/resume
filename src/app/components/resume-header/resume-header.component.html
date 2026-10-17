@@ -1,12 +1,35 @@
 <header id="contact-info" class="vcard" itemscope itemtype="https://schema.org/Person">
   <h1 class="fn" itemprop="name">{{ general().name }}</h1>
-  @if (general().headline) { <p class="headline" itemprop="jobTitle">{{ general().headline }}</p> }
+  @if (general().headline) {
+    <p class="headline" itemprop="jobTitle">{{ general().headline }}</p>
+  }
   <address class="contact-list">
-    @if (general().city; as city) { <span itemprop="address"><i class="fa-solid fa-location-dot contact-icon" aria-hidden="true"></i>{{ city.value }}</span> }
-    @if (general().cell; as cell) { <a [href]="'tel:' + cell.value" itemprop="telephone"><i class="fa-solid fa-phone contact-icon" aria-hidden="true"></i>{{ cell.value }}</a> }
-    @if (general().email; as email) { <a [href]="'mailto:' + email.value" itemprop="email"><i class="fa-solid fa-envelope contact-icon" aria-hidden="true"></i>{{ email.value }}</a> }
-    @if (general().github; as github) { <a [href]="github.value" itemprop="sameAs"><i class="fa-brands fa-github contact-icon" aria-hidden="true"></i>{{ github.label }}</a> }
-    @if (general().linkedIn; as linkedIn) { <a [href]="linkedIn.value" itemprop="sameAs"><i class="fa-brands fa-linkedin contact-icon" aria-hidden="true"></i>{{ linkedIn.label }}</a> }
-    @if (general().website; as website) { <a [href]="website.value" itemprop="url"><i class="fa-solid fa-globe contact-icon" aria-hidden="true"></i>{{ website.label }}</a> }
+    @if (general().city; as city) {
+      <span itemprop="address"><app-resume-icon class="contact-icon" name="fa-location-dot" />{{ city.value }}</span>
+    }
+    @if (general().cell; as cell) {
+      <a [href]="'tel:' + cell.value" itemprop="telephone"><app-resume-icon class="contact-icon" name="fa-phone" />{{ cell.value }}</a>
+    }
+    @if (general().email; as email) {
+      <a [href]="'mailto:' + email.value" itemprop="email"><app-resume-icon class="contact-icon" name="fa-envelope" />{{ email.value }}</a>
+    }
+    @if (general().github; as github) {
+      <a [href]="github.value" itemprop="sameAs"
+        ><app-resume-icon class="contact-icon" name="fa-github" /><span class="screen-contact-label">{{ github.label }}</span
+        ><span class="print-contact-url">{{ github.value }}</span></a
+      >
+    }
+    @if (general().linkedIn; as linkedIn) {
+      <a [href]="linkedIn.value" itemprop="sameAs"
+        ><app-resume-icon class="contact-icon" name="fa-linkedin" /><span class="screen-contact-label">{{ linkedIn.label }}</span
+        ><span class="print-contact-url">{{ linkedIn.value }}</span></a
+      >
+    }
+    @if (general().website; as website) {
+      <a [href]="website.value" itemprop="url"
+        ><app-resume-icon class="contact-icon" name="fa-globe" /><span class="screen-contact-label">{{ website.label }}</span
+        ><span class="print-contact-url">{{ website.value }}</span></a
+      >
+    }
   </address>
 </header>

@@ -9,7 +9,7 @@
       <app-resume-header [general]="resume.general" />
       @if (resume.summary || resume.general.objective; as summary) {
         <section aria-labelledby="summary-heading">
-          <h2 id="summary-heading"><i class="fa-solid fa-user section-icon" aria-hidden="true"></i>Professional Summary</h2>
+          <h2 id="summary-heading"><app-resume-icon class="section-icon" name="fa-user" />Professional Summary</h2>
           <p [innerHTML]="summary"></p>
         </section>
       }

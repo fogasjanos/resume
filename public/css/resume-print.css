@@ -2,7 +2,6 @@
 @media print {
   body { background: white; color: #111827; font-family: Arial, Helvetica, sans-serif; font-size: 9.5pt; line-height: 1.25; }
   #page-wrap { max-width: none; margin: 0; padding: 0; border: 0; border-radius: 0; box-shadow: none; }
-  #contact-info { padding-bottom: 12px; border-bottom-width: 2px; }
   h1 { font-size: 26pt; }
   .headline { font-size: 12pt; margin: 6px 0; }
   .contact-list { margin-top: 8px; font-size: 8.5pt; gap: 3px 14px; }
@@ -29,7 +28,8 @@
   .expertise-list > div { display: block; }
   .expertise-list dt, .expertise-list dd { display: inline; }
   .expertise-list dt::after { content: ": "; }
-  .contact-icon { display: none; }
+  .contact-icon, .screen-contact-label { display: none; }
+  .print-contact-url { display: inline; }
   a, h3 a { text-decoration: none; }
   .no-print { display: none !important; }
 }

@@ -160,7 +160,7 @@ Each optional section object supports:
 
 - `disabled: true`: hide the section on screen and in print.
 - `print: false`: show the section on screen, but hide it in print.
-- `style`: optional Font Awesome icon classes, such as `"fa-briefcase"`.
+- `style`: optional supported Font Awesome icon identifier, such as `"fa-briefcase"`. Existing strings with extra classes remain supported; only the recognized icon identifier is used. See the `ICONS` map in `src/app/components/resume-icon/resume-icon.component.ts` for the available names. Unknown names fall back to the list icon.
 
 For example, a training section shown only on the website:
 
@@ -198,7 +198,7 @@ From the project folder:
 npm run build
 ```
 
-The files to upload to your static web host are the **contents of `dist/browser/`**, including `index.html`, the JavaScript bundle, `css/`, `webfonts/` and your chosen JSON files. Uploading only a JSON file is not enough for a first deployment. No Node.js server is needed on the hosting side.
+The files to upload to your static web host are the **contents of `dist/browser/`**, including `index.html`, the JavaScript bundle, `css/` and your chosen JSON files. Uploading only a JSON file is not enough for a first deployment. No Node.js server is needed on the hosting side.
 
 Stylesheets in `public/css/` are served as separate static files. Production builds disable critical-CSS inlining because the CV is rendered in the browser after loading its JSON, and the static stylesheets are copied separately from the generated bundles. JavaScript optimization and generated CSS minification remain enabled.
 
@@ -235,7 +235,7 @@ Important project locations:
 - `public/resume.json`: reusable sample data.
 - `public/css/resume.css`: shared styles and responsive screen layout.
 - `public/css/resume-print.css`: print-specific overrides.
-- `public/css/` and `public/webfonts/`: locally served Font Awesome assets.
+- `src/app/components/resume-icon/`: decorative inline SVG icons from Font Awesome Free 7.3.1.
 
 ## Troubleshooting
 
@@ -252,3 +252,5 @@ Important project locations:
 | Changes do not appear                                          | Save the source/data file and refresh the browser. After replacing dependencies, restart the development server. For a published site, rebuild and upload the new output.            |
 
 For Angular CLI commands not exposed above, use `npm exec ng -- <command>`. General guidance is available in the [Angular documentation](https://angular.dev/overview).
+
+Icons use path-only inline SVGs, so no icon-font characters are introduced into PDF text extraction. They are marked as decorative and do not depend on printing background graphics. Only the mapped icons are bundled, with no Font Awesome webfonts or CSS required. Font Awesome Free icons are provided by the official npm packages; see their [license and attribution information](https://fontawesome.com/license/free).

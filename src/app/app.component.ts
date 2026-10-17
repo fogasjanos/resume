@@ -1,3 +1,4 @@
+import { ResumeIconComponent } from './components/resume-icon/resume-icon.component';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Observable, of, map, distinctUntilChanged, startWith, switchMap, catchError, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -17,6 +18,7 @@ import { ResumeTechnicalSkillsComponent } from './components/resume-technical-sk
 @Component({
   selector: 'app-root',
   imports: [
+    ResumeIconComponent,
     AsyncPipe,
     ResumeEducationComponent,
     ResumeExperienceComponent,

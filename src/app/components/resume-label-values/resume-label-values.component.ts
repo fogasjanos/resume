@@ -1,7 +1,9 @@
+import { ResumeIconComponent } from '../resume-icon/resume-icon.component';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { LabelValues } from '../../interfaces/label-values.interface';
 
 @Component({
+  imports: [ResumeIconComponent],
   selector: 'app-resume-label-values',
   templateUrl: './resume-label-values.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

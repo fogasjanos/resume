@@ -19,11 +19,14 @@
     "@angular/core": "^22.2.3",
     "@angular/platform-browser": "^22.2.3",
     "@angular/router": "^22.2.3",
+    "@fortawesome/free-brands-svg-icons": "^7.3.1",
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "esbuild": "^0.25.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular/build": "^22.2.3",
     "@angular/cli": "^22.2.3",
     "@angular/compiler-cli": "^22.2.3",
     "@types/jasmine": "~5.1.0",
@@ -39,8 +42,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "knip": "^5.44.1",
     "prettier": "^3.5.1",
-    "typescript": "~6.0.3",
-    "@angular/build": "^22.2.3"
+    "typescript": "~6.0.3"
   },
   "engines": {
     "node": "^22.22.3 || ^24.15.0 || ^26.0.0"
